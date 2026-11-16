@@ -1,0 +1,74 @@
+<section class="game-grid" [attr.aria-busy]="loading()">
+  @if (error()) {
+    <div class="alert alert-danger d-flex flex-wrap align-items-center gap-3" role="alert">
+      <i class="bi bi-exclamation-triangle-fill fs-4" aria-hidden="true"></i>
+      <span class="flex-grow-1">{{ error() }}</span>
+      <button type="button" class="btn btn-outline-danger btn-sm" (click)="retry.emit()">
+        <i class="bi bi-arrow-clockwise" aria-hidden="true"></i> Riprova
+      </button>
+    </div>
+  }
+
+  @if (showSkeletons()) {
+    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3" aria-hidden="true">
+      @for (s of skeletons(); track $index) {
+        <div class="col">
+          <div class="card h-100 placeholder-glow">
+            <div class="skeleton-cover placeholder w-100"></div>
+            <div class="card-body d-flex flex-column gap-2">
+              <span class="placeholder col-10"></span>
+              <span class="placeholder col-6 placeholder-sm"></span>
+              <span class="placeholder col-4 placeholder-sm mt-auto"></span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+    <span class="visually-hidden" role="status">Caricamento dei giochi…</span>
+  }
+
+  @if (showEmpty()) {
+    <div class="text-center text-body-secondary py-5" role="status">
+      <i class="bi bi-search fs-1 d-block mb-3" aria-hidden="true"></i>
+      <p class="fs-5 mb-1">{{ emptyMessage() }}</p>
+      @if (emptyHint()) {
+        <p class="mb-0">{{ emptyHint() }}</p>
+      }
+    </div>
+  }
+
+  @if (games().length) {
+    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3">
+      @for (game of games(); track game.id) {
+        <div class="col">
+          <app-game-card
+            [game]="game"
+            [platformLabels]="labelsFor(game)"
+            [isFavorite]="favoriteIds().has(game.id)"
+            [isWishlisted]="wishlistIds().has(game.id)"
+            (favoriteToggle)="favoriteToggle.emit($event)"
+            (wishlistToggle)="wishlistToggle.emit($event)"
+          />
+        </div>
+      }
+    </div>
+
+    @if (hasMore()) {
+      <div class="d-flex justify-content-center mt-4">
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          [disabled]="loading()"
+          (click)="loadMore.emit()"
+        >
+          @if (loading()) {
+            <span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
+            Caricamento…
+          } @else {
+            Carica altri giochi
+          }
+        </button>
+      </div>
+    }
+  }
+</section>

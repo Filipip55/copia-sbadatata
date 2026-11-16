@@ -1,0 +1,105 @@
+// Accent color
+$primary: #8b5cf6;
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+.btn-active {
+  background-color: var(--bs-border-color) !important;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.btn-primary,
+.btn-primary:hover {
+  color: #fff;
+}
+
+body {
+  height: 100vh;
+}
+
+.bg-glass {
+  background: rgba(var(--bs-body-bg-rgb), 0.3);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.bg-transparent-lg {
+  @media (max-width: 992px) {
+    background: transparent !important;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none !important;
+    border-color: transparent !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .shadow-lg-none {
+    box-shadow: none !important;
+  }
+  .border-lg-0 {
+    border: 0 !important;
+  }
+  .border-lg {
+    border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+  }
+  .shadow-lg {
+    box-shadow: var(--bs-box-shadow) !important;
+  }
+  .bg-only-lg {
+    background-color: var(--bs-body-bg) !important;
+  }
+  .w-lg-50 {
+    width: 50% !important;
+  }
+  .w-lg-25 {
+    width: 25% !important;
+  }
+  .auth-back-btn {
+    top: 3.5rem;
+    left: 4rem;
+  }
+}
+
+.auth-back-btn {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10;
+}
+
+// Avatar CSS Sprite
+.avatar-sprite {
+  display: inline-block;
+  background-image: url('/images/avatars-sprite.webp');
+  background-repeat: no-repeat;
+  background-size: 600% 100%;
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  vertical-align: middle;
+}
+
+.avatar-sprite-0 {
+  background-position: 0% 0%;
+}
+.avatar-sprite-1 {
+  background-position: 20% 0%;
+}
+.avatar-sprite-2 {
+  background-position: 40% 0%;
+}
+.avatar-sprite-3 {
+  background-position: 60% 0%;
+}
+.avatar-sprite-4 {
+  background-position: 80% 0%;
+}
+.avatar-sprite-5 {
+  background-position: 100% 0%;
+}

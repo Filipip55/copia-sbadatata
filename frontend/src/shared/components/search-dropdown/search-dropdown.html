@@ -1,0 +1,62 @@
+<div
+  style="max-height: 400px"
+  class="py-2 px-1 position-absolute bg-body text-body-secondary w-100 mt-3 border rounded-3 shadow overflow-auto z-3"
+>
+  @if (loading()) {
+    <div class="d-flex justify-content-center p-3" role="status">
+      <div class="spinner-border spinner-border-sm" aria-hidden="true"></div>
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  }
+
+  @for (game of results().slice(0, 10); track game.id) {
+    <div
+      class="game-result d-flex align-items-top gap-2 p-2 w-100 overflow-hidden"
+      (click)="selectGame(game)"
+    >
+      <img
+        [src]="game.cover_url"
+        [alt]="game.name"
+        width="50"
+        height="65"
+        class="rounded object-fit-cover"
+      />
+
+      <div class="flex-grow-1 overflow-hidden">
+        <div class="text-truncate fw-semibold">{{ game.name }}</div>
+        <div class="d-flex gap-3 align-items-end">
+          <div class="d-flex align-items-baseline gap-2">
+            <small class="fw-semibold ext-body-secondary">Year:</small>
+            <small class="fw-light text-body-secondary">
+              {{
+                game.first_release_date ? (game.first_release_date * 1000 | date: 'yyyy') : 'N/A'
+              }}
+            </small>
+          </div>
+
+          @if (game.aggregated_rating !== null && game.aggregated_rating !== undefined) {
+            <div class="d-flex align-items-baseline gap-2">
+              <small class="fw-semibold ext-body-secondary">Rating:</small>
+              <small class="text-body-secondary">
+                {{ game.aggregated_rating | number: '1.0-0' }}/100
+              </small>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  }
+
+  @if (results().length > 0) {
+    <div class="border-top mt-1 pt-1 px-2">
+      <a
+        [routerLink]="['/search-results']"
+        [queryParams]="queryParams()"
+        (click)="viewAll.emit()"
+        class="game-result d-block text-center py-2 fw-semibold text-decoration-none"
+      >
+        Vedi tutti i risultati →
+      </a>
+    </div>
+  }
+</div>

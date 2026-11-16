@@ -1,0 +1,11 @@
+<main class="container-fluid w-100 p-0 min-vh-100 d-flex flex-column">
+  @if (showNav()) {
+    <app-header> </app-header>
+  }
+  <router-outlet></router-outlet>
+  @if (showNav()) {
+    <app-bottom-navigation></app-bottom-navigation>
+  }
+  <app-toast></app-toast>
+</main>
+<app-footer />

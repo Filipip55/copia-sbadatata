@@ -1,0 +1,25 @@
+<section
+  class="container library-list mt-3 mt-lg-5 px-4"
+  [attr.aria-labelledby]="listType() + '-heading'"
+>
+  <header class="d-flex align-items-baseline gap-3 mb-4">
+    <h1 class="h3 mb-0" [id]="listType() + '-heading'">{{ heading() }}</h1>
+    @if (!loading() && !error() && games().length) {
+      <span class="text-body-secondary">{{ countLabel() }}</span>
+    }
+  </header>
+
+  <app-game-grid
+    [games]="games()"
+    [loading]="loading()"
+    [error]="error()"
+    [platformNames]="platformNames()"
+    [favoriteIds]="favoriteIds()"
+    [wishlistIds]="wishlistIds()"
+    [emptyMessage]="emptyMessage()"
+    [emptyHint]="emptyHint()"
+    (favoriteToggle)="onToggle('favorites', $event)"
+    (wishlistToggle)="onToggle('wishlist', $event)"
+    (retry)="onRetry()"
+  />
+</section>

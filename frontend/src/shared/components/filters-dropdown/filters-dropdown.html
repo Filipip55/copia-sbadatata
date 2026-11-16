@@ -1,0 +1,198 @@
+<div
+  class="filter-dropdown end-0 position-absolute bg-body text-body-secondary mt-3 border rounded-3 shadow z-3"
+>
+  <div class="p-4">
+    <div class="filter-dropdown-grid">
+      <!-- Colonna 1: Generi -->
+      <div class="filter-col">
+        <div class="accordion accordion-flush mb-0">
+          <div class="accordion-item bg-body border-0">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button rounded collapsed bg-body text-body px-2"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#genreFilters"
+                aria-expanded="false"
+                aria-controls="genreFilters"
+              >
+                Genres
+                <span class="badge text-bg-secondary ms-2">
+                  {{ filters().genres?.length ?? 0 }}
+                </span>
+              </button>
+            </h2>
+
+            <div id="genreFilters" class="accordion-collapse collapse">
+              <div class="accordion-body px-2 pt-2 pb-0">
+                <div class="filter-checkbox-list">
+                  @for (genre of genres(); track genre.id) {
+                    <label class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        [checked]="filters().genres?.includes(genre.id) ?? false"
+                        (change)="toggleGenre.emit(genre.id)"
+                      />
+                      <span class="form-check-label">{{ genre.name }}</span>
+                    </label>
+                  } @empty {
+                    <p class="small text-body-secondary mb-0">Nessun genere disponibile.</p>
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Colonna 2: Piattaforme -->
+      <div class="filter-col">
+        <div class="accordion accordion-flush mb-0">
+          <div class="accordion-item bg-body border-0">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button rounded collapsed bg-body text-body px-2"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#platformFilters"
+                aria-expanded="false"
+                aria-controls="platformFilters"
+              >
+                Platforms
+                <span class="badge text-bg-secondary ms-2">
+                  {{ filters().platforms?.length ?? 0 }}
+                </span>
+              </button>
+            </h2>
+
+            <div id="platformFilters" class="accordion-collapse collapse">
+              <div class="accordion-body px-2 pt-2 pb-0">
+                <div class="filter-checkbox-list">
+                  @for (platform of platforms(); track platform.id) {
+                    <label class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        [checked]="filters().platforms?.includes(platform.id) ?? false"
+                        (change)="togglePlatform.emit(platform.id)"
+                      />
+                      <span class="form-check-label">{{ platform.name }}</span>
+                    </label>
+                  } @empty {
+                    <p class="small text-body-secondary mb-0">Nessuna piattaforma disponibile.</p>
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Colonna 3: Release Year, Rating, Ordering -->
+      <div class="filter-col d-flex flex-column gap-3">
+        <!-- Data di pubblicazione -->
+        <div>
+          <label class="form-label fw-semibold mb-1">Release year</label>
+          <div class="row g-2">
+            <div class="col-6">
+              <label for="dateFrom" class="form-label small mb-1">From</label>
+              <select
+                id="dateFrom"
+                class="form-select form-select-sm"
+                [ngModel]="dateFrom()"
+                (ngModelChange)="updateDateRange.emit({ type: 'start', value: $event })"
+              >
+                <option value="">--</option>
+                @for (year of years(); track year) {
+                  <option [value]="year">{{ year }}</option>
+                }
+              </select>
+            </div>
+
+            <div class="col-6">
+              <label for="dateTo" class="form-label small mb-1">To</label>
+              <select
+                id="dateTo"
+                class="form-select form-select-sm"
+                [ngModel]="dateTo()"
+                (ngModelChange)="updateDateRange.emit({ type: 'end', value: $event })"
+              >
+                <option value="">--</option>
+                @for (year of years(); track year) {
+                  <option [value]="year">{{ year }}</option>
+                }
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rating -->
+        <div>
+          <label class="form-label fw-semibold mb-1">Rating</label>
+          <div class="row g-2">
+            <div class="col-6">
+              <label for="ratingMin" class="form-label small mb-1">Min</label>
+              <input
+                id="ratingMin"
+                type="number"
+                class="form-control form-control-sm"
+                min="0"
+                max="100"
+                placeholder="0"
+                [value]="filters().metacritic?.split(',')?.[0] ?? ''"
+                (change)="updateRatingRange.emit({ type: 'min', value: $any($event.target).value })"
+              />
+            </div>
+
+            <div class="col-6">
+              <label for="ratingMax" class="form-label small mb-1">Max</label>
+              <input
+                id="ratingMax"
+                type="number"
+                class="form-control form-control-sm"
+                min="0"
+                max="100"
+                placeholder="100"
+                [value]="filters().metacritic?.split(',')?.[1] ?? ''"
+                (change)="updateRatingRange.emit({ type: 'max', value: $any($event.target).value })"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Ordinamento -->
+        <div>
+          <label for="ordering" class="form-label fw-semibold mb-1">Order by</label>
+          <select
+            id="ordering"
+            class="form-select form-select-sm"
+            [ngModel]="filters().ordering ?? ''"
+            (ngModelChange)="updateOrdering.emit($event)"
+          >
+            <option value="">Default</option>
+            <option value="name">Name: A–Z</option>
+            <option value="-name">Name: Z–A</option>
+            <option value="first_release_date">Release date: Oldest first</option>
+            <option value="-first_release_date">Release date: Newest first</option>
+            <option value="aggregated_rating">Rating: Lowest first</option>
+            <option value="-aggregated_rating">Rating: Highest first</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter actions -->
+    <div
+      class="filter-dropdown-actions d-flex justify-content-between align-items-center pt-2 mt-3 border-top"
+    >
+      <button type="button" class="btn btn-sm btn-outline-secondary" (click)="resetFilters.emit()">
+        Reset
+      </button>
+
+      <button type="button" class="btn btn-sm btn-primary" (click)="applyFilters.emit()">
+        Apply
+      </button>
+    </div>
+  </div>
+</div>

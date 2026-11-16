@@ -1,0 +1,57 @@
+// Contenitore fisso, centrato in basso. Su mobile sta sopra la bottom
+// navigation (che è alta circa 5.5rem compreso il suo padding).
+.toast-region {
+  position: fixed;
+  left: 50%;
+  bottom: calc(5.75rem + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  width: min(32rem, calc(100% - 2rem));
+  z-index: 1090; // sopra .fixed-bottom (1030) e i dropdown
+  pointer-events: none; // la regione vuota non deve bloccare i click
+
+  @media (min-width: 992px) {
+    bottom: 1.5rem;
+  }
+}
+
+// Colori invertiti rispetto alla pagina, così l'avviso si stacca sia nel
+// tema chiaro sia in quello scuro.
+.app-toast {
+  pointer-events: auto;
+  background-color: var(--bs-emphasis-color);
+  color: var(--bs-body-bg);
+  animation: toast-in 180ms ease-out;
+}
+
+.message {
+  overflow-wrap: anywhere; // titoli IGDB molto lunghi
+}
+
+.toast-btn {
+  color: inherit;
+  border: 0;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: rgba(var(--bs-body-bg-rgb), 0.15);
+  }
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 1px;
+    box-shadow: none;
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-toast {
+    animation: none;
+  }
+}

@@ -1,0 +1,89 @@
+@if (authService.isAuthenticated()) {
+  <div
+    class="position-absolute mt-3 w-100 w-lg-25 dropdown-menu show shadow border p-3"
+    style="min-width: 240px"
+  >
+    <!-- Account header -->
+    <div class="d-flex align-items-center gap-3 mb-3">
+      @if (
+        authService.currentUser()?.avatar !== null &&
+        authService.currentUser()?.avatar !== undefined
+      ) {
+        <span
+          class="avatar-sprite avatar-sprite-{{ authService.currentUser()!.avatar }} flex-shrink-0"
+          style="width: 2.75rem; height: 2.75rem"
+        ></span>
+      } @else {
+        <i
+          class="bi bi-person-circle fs-1 text-body-secondary flex-shrink-0"
+          aria-hidden="true"
+        ></i>
+      }
+      <div>
+        <h6 class="mb-0">Hi, {{ authService.currentUser()?.username }}!</h6>
+        <small class="text-body-secondary">Manage your account</small>
+      </div>
+    </div>
+
+    <hr class="dropdown-divider" />
+
+    <!-- Authenticated user -->
+    <a
+      (click)="close.emit()"
+      class="dropdown-item rounded d-flex align-items-center gap-2 py-2"
+      routerLink="/profile"
+    >
+      <i class="bi bi-person fs-5" aria-hidden="true"></i>
+      Profile
+    </a>
+    <!-- Logout -->
+    <button
+      type="button"
+      class="dropdown-item rounded d-flex align-items-center gap-2 py-2 text-danger"
+      (click)="accountLogout()"
+    >
+      <i style="margin-left: 3px" class="bi bi-box-arrow-right fs-5" aria-hidden="true"></i>
+      Log out
+    </button>
+
+    <hr class="dropdown-divider" />
+    <app-theme-switch />
+  </div>
+} @else {
+  <div
+    class="position-absolute mt-3 show shadow dropdown-menu w-100 w-lg-25 border p-3"
+    style="min-width: 240px"
+  >
+    <!-- Guest header -->
+    <div class="mb-3">
+      <h6 class="mb-1">Hi, Guest!</h6>
+      <small class="text-body-secondary"> Sign in to personalize your experience </small>
+    </div>
+
+    <hr class="dropdown-divider" />
+
+    <!-- Authentication actions -->
+    <a
+      (click)="close.emit()"
+      class="dropdown-item rounded d-flex align-items-center gap-2 py-2"
+      routerLink="/login"
+    >
+      <i class="bi bi-box-arrow-in-right fs-5" aria-hidden="true"></i>
+      Log in
+    </a>
+
+    <a
+      (click)="close.emit()"
+      class="dropdown-item rounded d-flex align-items-center gap-2 py-2"
+      routerLink="/register"
+    >
+      <i style="margin-left: 3px" class="bi bi-person-plus fs-5" aria-hidden="true"></i>
+      Create account
+    </a>
+
+    <hr class="dropdown-divider" />
+
+    <!-- Theme switch -->
+    <app-theme-switch />
+  </div>
+}

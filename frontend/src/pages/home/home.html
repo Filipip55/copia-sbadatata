@@ -1,0 +1,18 @@
+<div class="featured-hero w-100">
+  <div class="w-100">
+    @if (isLoading()) {
+      <div style="height: 300px" class="d-flex justify-content-center align-items-center py-5">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Caricamento...</span>
+        </div>
+      </div>
+    } @else {
+      <app-featured-carousel [games]="featuredGames()" />
+    }
+  </div>
+</div>
+<div class="container-fluid px-4 px-lg-5">
+  @for (genre of genres(); track genre.id) {
+    <app-genre-section [genre]="genre" [platformNames]="platformNames()" />
+  }
+</div>

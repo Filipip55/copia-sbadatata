@@ -1,0 +1,23 @@
+.not-found-wrapper {
+  min-height: calc(100vh - 220px);
+}
+
+.not-found-symbol {
+  display: block;
+  width: 4rem;
+  height: auto;
+  margin-inline: auto;
+}
+
+.error-code {
+  font-size: clamp(5rem, 14vw, 8.5rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  user-select: none;
+  opacity: 0.95;
+}
+
+.not-found-description {
+  max-width: 480px;
+  font-size: 1.1rem;
+}

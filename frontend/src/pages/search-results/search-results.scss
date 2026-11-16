@@ -1,0 +1,10 @@
+// Spazio per evitare la sovrapposizione con header fisso in alto
+// e con la bottom navigation su viewport inferiori a lg.
+.search-results-page {
+  padding-top: 5.5rem;
+  padding-bottom: 5.5rem;
+
+  @media (min-width: 992px) {
+    padding-bottom: 2rem;
+  }
+}

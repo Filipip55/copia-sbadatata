@@ -1,0 +1,10 @@
+// Stessi spazi di search-results: header fisso in alto e, sotto lg,
+// bottom navigation fissa in basso (più lo spazio per l'avviso "rimosso").
+.library-list {
+  padding-top: 5.5rem;
+  padding-bottom: 9rem;
+
+  @media (min-width: 992px) {
+    padding-bottom: 5rem;
+  }
+}

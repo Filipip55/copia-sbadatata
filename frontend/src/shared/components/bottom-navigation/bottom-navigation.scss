@@ -1,0 +1,12 @@
+.fixed-bottom {
+  transition: transform 250ms ease;
+}
+
+.fixed-bottom.is-hidden {
+  transform: translateY(100%);
+}
+
+.active {
+  background-color: var(--bs-border-color) !important;
+  color: var(--bs-color-primary);
+}

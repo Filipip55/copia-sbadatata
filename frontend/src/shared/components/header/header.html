@@ -1,0 +1,120 @@
+<div class="fixed-top header-container" [class.is-hidden]="isHidden()">
+  <div class="bg-transparent-lg bg-glass p-3 border-0 shadow-none shadow-lg w-100">
+    <div class="position-relative">
+      <header class="d-flex justify-content-between align-items-center gap-3">
+        <div class="d-flex align-items-center">
+          <button
+            #accountButton
+            type="button"
+            style="width: 2.5rem; height: 2.5rem"
+            class="btn bg-glass border text-body-secondary shadow shadow-lg-none rounded-circle d-flex align-items-center justify-content-center p-0 overflow-hidden"
+            aria-label="Account"
+            [attr.aria-label]="isAccountOpen() ? 'Close Account Manager' : 'Open Account Manager'"
+            [attr.aria-expanded]="isAccountOpen()"
+            (click)="toggleAccount()"
+            title="Account"
+          >
+            @if (
+              authService.currentUser()?.avatar !== null &&
+              authService.currentUser()?.avatar !== undefined
+            ) {
+              <span
+                class="avatar-sprite avatar-sprite-{{
+                  authService.currentUser()!.avatar
+                }} w-100 h-100"
+              ></span>
+            } @else {
+              <i class="bi bi-person-circle fs-5" aria-hidden="true"></i>
+            }
+          </button>
+
+          <app-desktop-navigation />
+        </div>
+
+        <div
+          #searchContainer
+          class="search-container shadow-lg-none shadow d-flex align-items-center bg-glass outline-secondary border rounded-pill"
+          [class.flex-grow-1]="isSearchOpen()"
+        >
+          @if (isSearchOpen()) {
+            <input
+              #searchInput
+              id="search-input"
+              type="search"
+              class="form-control search-input"
+              aria-label="Games Search"
+              placeholder="search..."
+              [formControl]="searchControl"
+              (focus)="closeFilters()"
+              (keydown.enter)="submitSearch()"
+            />
+          }
+          <button
+            type="button"
+            style="width: 2.5rem; height: 2.5rem"
+            class="btn search-button shadow-lg-none rounded-circle d-flex justify-content-center align-items-center"
+            [attr.aria-label]="isSearchOpen() ? 'Close Searchbar' : 'Open Searchbar'"
+            [attr.aria-expanded]="isSearchOpen()"
+            aria-controls="search-input"
+            (click)="isSearchOpen() ? closeSearch() : toggleSearch()"
+          >
+            @if (isSearchOpen()) {
+              <i class="bi bi-x-lg text-body-secondary" aria-hidden="true"></i>
+            } @else {
+              <i class="bi bi-search text-body-secondary" aria-hidden="true"></i>
+            }
+          </button>
+
+          <!-- @if (!isSearchResultsPage()) { -->
+          <button
+            #filtersButton
+            type="button"
+            style="width: 2.5rem; height: 2.5rem"
+            class="btn search-button shadow-lg-none rounded-circle d-flex justify-content-center align-items-center"
+            [ngClass]="isFilterOpen() ? 'btn-active' : ''"
+            [attr.aria-label]="isFilterOpen() ? 'Close Filters' : 'Open Filters'"
+            [attr.aria-expanded]="isFilterOpen()"
+            aria-controls="search-input"
+            (click)="toggleFilters()"
+          >
+            <i class="bi bi-sliders text-body-secondary" aria-hidden="true"></i>
+          </button>
+          <!-- } -->
+        </div>
+      </header>
+
+      @if (isAccountOpen()) {
+        <app-account-dropdown #accountDropdown (close)="closeAccount()" />
+      }
+
+      @if (isSearchOpen() && (isLoading() || searchResults().length > 0) && !isFilterOpen()) {
+        <app-search-dropdown
+          #searchDropdown
+          [results]="searchResults()"
+          [loading]="isLoading()"
+          [queryParams]="searchQueryParams()"
+          (viewAll)="closeSearch()"
+        />
+      }
+
+      @if (isFilterOpen()) {
+        <app-filters-dropdown
+          #filtersDropdown
+          [filters]="filters()"
+          [genres]="genres()"
+          [platforms]="platforms()"
+          [years]="years"
+          (toggleGenre)="toggleGenre($event)"
+          (togglePlatform)="togglePlatform($event)"
+          (updateDateRange)="updateDateRange($event.type, $event.value)"
+          (updateRatingRange)="updateRatingRange($event.type, $event.value)"
+          (updateOrdering)="updateOrdering($event)"
+          [dateFrom]="dateFrom()"
+          [dateTo]="dateTo()"
+          (resetFilters)="resetDraftFilters()"
+          (applyFilters)="applyFilters()"
+        />
+      }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<!-- La regione "status" esiste sempre: gli screen reader annunciano
+     solo i cambiamenti dentro una regione live già presente nella pagina. -->
+<div class="toast-region" role="status" aria-live="polite" aria-atomic="true">
+  @if (toasts.current(); as toast) {
+    <div
+      class="app-toast d-flex align-items-center gap-2 rounded-3 shadow ps-3 pe-1 py-1"
+      (mouseenter)="setHovered(true)"
+      (mouseleave)="setHovered(false)"
+      (focusin)="onFocusIn()"
+      (focusout)="onFocusOut($event)"
+    >
+      <span class="flex-grow-1 py-2 message">{{ toast.message }}</span>
+
+      @if (toast.actionLabel) {
+        <button type="button" class="btn btn-sm toast-btn fw-semibold" (click)="act(toast.id)">
+          {{ toast.actionLabel }}
+        </button>
+      }
+
+      <button
+        type="button"
+        class="btn btn-sm toast-btn"
+        aria-label="Chiudi avviso"
+        (click)="close(toast.id)"
+      >
+        <i class="bi bi-x-lg" aria-hidden="true"></i>
+      </button>
+    </div>
+  }
+</div>

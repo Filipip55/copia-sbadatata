@@ -1,0 +1,39 @@
+<div
+  class="fixed-bottom d-flex justify-content-center p-3 w-100 flex-grow-1 d-lg-none"
+  [class.is-hidden]="isHidden()"
+>
+  <nav
+    class="bg-glass border shadow d-flex w-75 align-items-center justify-content-between gap-3 px-5 py-2 rounded-pill"
+  >
+    <a
+      style="width: 2.4rem; height: 2.4rem"
+      class="d-flex align-items-center justify-content-center rounded-circle"
+      routerLink=""
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      aria-label="Home"
+    >
+      <i class="bi bi-house fs-5 text-body-secondary" aria-hidden="true"></i>
+    </a>
+    <a
+      style="width: 2.4rem; height: 2.4rem; padding-top: 2px"
+      class="d-flex align-items-center justify-content-center rounded-circle"
+      routerLink="favorites"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      aria-label="Favorites"
+    >
+      <i class="bi bi-heart fs-5 text-body-secondary" aria-hidden="true"></i>
+    </a>
+    <a
+      style="width: 2.4rem; height: 2.4rem"
+      class="d-flex align-items-center justify-content-center rounded-circle"
+      routerLink="wishlist"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      aria-label="Wishlist"
+    >
+      <i class="bi bi-bookmark-heart fs-5 text-body-secondary" aria-hidden="true"></i>
+    </a>
+  </nav>
+</div>

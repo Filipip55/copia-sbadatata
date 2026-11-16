@@ -1,0 +1,23 @@
+.footer-logo {
+  height: 2.25rem;
+  width: auto;
+  max-width: 100%;
+}
+
+.logo-dark {
+  display: inline-block;
+}
+
+.logo-light {
+  display: none;
+}
+
+:host-context([data-bs-theme='light']) {
+  .logo-dark {
+    display: none;
+  }
+
+  .logo-light {
+    display: inline-block;
+  }
+}

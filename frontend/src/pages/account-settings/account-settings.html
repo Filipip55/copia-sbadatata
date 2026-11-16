@@ -1,0 +1,208 @@
+<div class="gi-page py-5 text-body-secondary">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        <div class="mb-3">
+          <a
+            routerLink="/"
+            class="btn btn-outline-secondary d-inline-flex align-items-center gap-2"
+          >
+            <i class="bi bi-arrow-left" aria-hidden="true"></i>
+            Back to home
+          </a>
+        </div>
+        <section class="card gi-card">
+          <div class="card-body p-4 p-sm-5">
+            <h1 class="gi-brand h2 mb-1">Account settings</h1>
+            <p class="gi-subtitle mb-4">Manage your account data and security.</p>
+
+            @if (isLoading) {
+              <p role="status">Loading your account…</p>
+            } @else {
+              @if (message) {
+                <div class="alert alert-success" role="status">{{ message }}</div>
+              }
+              @if (error) {
+                <div class="alert alert-danger" role="alert">{{ error }}</div>
+              }
+
+              <section class="settings-section pt-0 border-top-0">
+                <h2 class="h5 mb-3">Profile picture</h2>
+                <p class="small text-body-secondary mb-3">
+                  Choose an avatar for your profile or keep the default icon.
+                </p>
+
+                <div class="d-flex flex-column flex-sm-row align-items-center gap-4 mb-4">
+                  <div class="text-center">
+                    <div
+                      class="avatar-preview-box border rounded-circle d-flex align-items-center justify-content-center mx-auto overflow-hidden shadow-sm"
+                      style="width: 5rem; height: 5rem"
+                    >
+                      @if (selectedAvatar !== null) {
+                        <span
+                          class="avatar-sprite avatar-sprite-{{ selectedAvatar }} w-100 h-100"
+                        ></span>
+                      } @else {
+                        <i
+                          class="bi bi-person-circle text-body-secondary"
+                          style="font-size: 3rem"
+                          aria-hidden="true"
+                        ></i>
+                      }
+                    </div>
+                    <small class="text-body-secondary d-block mt-2">Preview</small>
+                  </div>
+
+                  <div class="flex-grow-1">
+                    <label class="gi-label mb-2">Select your avatar</label>
+                    <div class="d-flex flex-wrap gap-2 align-items-center">
+                      <!-- Default icon option -->
+                      <button
+                        type="button"
+                        class="btn avatar-option-btn rounded-circle d-flex align-items-center justify-content-center p-0"
+                        [class.active]="selectedAvatar === null"
+                        (click)="selectAvatar(null)"
+                        title="Default icon"
+                        aria-label="Default icon"
+                      >
+                        <i
+                          class="bi bi-person-circle fs-4 text-body-secondary"
+                          aria-hidden="true"
+                        ></i>
+                      </button>
+
+                      <!-- 6 Sprite avatars -->
+                      @for (idx of avatarOptions; track idx) {
+                        <button
+                          type="button"
+                          class="btn avatar-option-btn rounded-circle p-0 overflow-hidden"
+                          [class.active]="selectedAvatar === idx"
+                          (click)="selectAvatar(idx)"
+                          [attr.title]="avatarLabels[idx]"
+                          [attr.aria-label]="avatarLabels[idx]"
+                        >
+                          <span class="avatar-sprite avatar-sprite-{{ idx }} w-100 h-100"></span>
+                        </button>
+                      }
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  class="btn btn-primary"
+                  type="button"
+                  [disabled]="isSubmitting || selectedAvatar === (profile?.avatar ?? null)"
+                  (click)="saveAvatar()"
+                >
+                  Save avatar
+                </button>
+              </section>
+
+              <section class="settings-section">
+                <h2 class="h5 mb-4">Account data</h2>
+                <dl class="row mb-4">
+                  <dt class="col-sm-4">Email</dt>
+                  <dd class="col-sm-8">
+                    {{ profile?.email || 'Not provided' }}
+                    <br />
+                    <small class="fw-light">(not editable)</small>
+                  </dd>
+                </dl>
+                <form [formGroup]="usernameForm" (ngSubmit)="changeUsername()" novalidate>
+                  <label for="username" class="gi-label">Username</label>
+                  <div class="input-group">
+                    <input
+                      id="username"
+                      class="form-control gi-input border"
+                      formControlName="username"
+                      maxlength="20"
+                      autocomplete="username"
+                    />
+                    <button class="btn btn-primary" type="submit" [disabled]="isSubmitting">
+                      Save
+                    </button>
+                  </div>
+                  @if (profile?.username_change_available_at) {
+                    <small class="form-text"
+                      >You can change your username again after
+                      {{ profile?.username_change_available_at | date: 'mediumDate' }}.</small
+                    >
+                  } @else {
+                    <small class="form-text"
+                      >Username changes are limited to once every 14 days.</small
+                    >
+                  }
+                  @if (
+                    usernameForm.controls.username.touched && usernameForm.controls.username.errors
+                  ) {
+                    <div class="invalid-feedback d-block" role="alert">
+                      Enter up to 20 letters or numbers.
+                    </div>
+                  }
+                </form>
+              </section>
+
+              <section class="settings-section">
+                <h2 class="h5 mb-4">Change password</h2>
+                <form [formGroup]="passwordForm" (ngSubmit)="changePassword()" novalidate>
+                  <input
+                    class="form-control gi-input mb-2 border"
+                    type="password"
+                    placeholder="Current password"
+                    formControlName="oldPassword"
+                    autocomplete="current-password"
+                  />
+                  <input
+                    class="form-control gi-input mb-2 border"
+                    type="password"
+                    placeholder="New password"
+                    formControlName="newPassword"
+                    autocomplete="new-password"
+                  />
+                  <input
+                    class="form-control gi-input mb-4 border"
+                    type="password"
+                    placeholder="Confirm new password"
+                    formControlName="confirmPassword"
+                    autocomplete="new-password"
+                  />
+                  @if (passwordForm.touched && passwordForm.errors?.['passwordsMismatch']) {
+                    <div class="text-danger mb-2">Passwords do not match.</div>
+                  }
+                  <button class="btn btn-primary" type="submit" [disabled]="isSubmitting">
+                    Change password
+                  </button>
+                </form>
+              </section>
+
+              <section class="settings-section border-danger">
+                <h2 class="h5">Delete account</h2>
+                <p class="small">
+                  This permanently deletes your account and personal library data. This action
+                  cannot be undone.
+                </p>
+                <form [formGroup]="deleteForm" (ngSubmit)="deleteAccount()" novalidate>
+                  <label for="delete-password" class="gi-label">Confirm with your password</label>
+                  <input
+                    id="delete-password"
+                    class="border form-control gi-input mb-3"
+                    type="password"
+                    formControlName="password"
+                    autocomplete="current-password"
+                  />
+                  <button
+                    class="btn btn-outline-danger w-100"
+                    type="submit"
+                    [disabled]="isSubmitting"
+                  >
+                    Permanently delete account
+                  </button>
+                </form>
+              </section>
+            }
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

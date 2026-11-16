@@ -1,0 +1,69 @@
+// La copertina IGDB "t_cover_big" è 264x374: fissiamo lo stesso rapporto
+// così tutte le card della griglia hanno la stessa altezza, anche senza immagine.
+.cover {
+  aspect-ratio: 264 / 374;
+  overflow: hidden;
+  flex-shrink: 0;
+  border-top-left-radius: var(--bs-card-inner-border-radius);
+  border-top-right-radius: var(--bs-card-inner-border-radius);
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.cover-fallback {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 3rem;
+}
+
+// Le azioni rapide devono stare sopra lo "stretched-link", altrimenti il
+// click aprirebbe il dettaglio invece di aggiungere il gioco alla lista.
+.quick-actions {
+  z-index: 2;
+}
+
+.quick-btn {
+  background-color: rgba(var(--bs-body-bg-rgb), 0.85);
+  color: var(--bs-body-color);
+  border-radius: 50%;
+  width: 2.25rem;
+  height: 2.25rem;
+
+  &:hover {
+    background-color: var(--bs-body-bg);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--bs-primary);
+    outline-offset: 2px;
+  }
+}
+
+.favorite-btn.is-active {
+  color: var(--bs-danger);
+}
+
+.wishlist-btn.is-active {
+  color: var(--bs-primary);
+}
+
+// Alcuni titoli IGDB sono lunghissimi: massimo due righe con i puntini.
+.title-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Feedback quando la card è attraversata da tastiera (link interno a fuoco).
+.game-card:focus-within {
+  outline: 2px solid var(--bs-primary);
+  outline-offset: 2px;
+}

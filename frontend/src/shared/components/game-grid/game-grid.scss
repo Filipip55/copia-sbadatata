@@ -1,0 +1,7 @@
+// Stesso rapporto della copertina nella card: lo scheletro ha la forma
+// esatta della card vera, così quando arrivano i dati la pagina non "salta".
+.skeleton-cover {
+  aspect-ratio: 264 / 374;
+  border-top-left-radius: var(--bs-card-inner-border-radius);
+  border-top-right-radius: var(--bs-card-inner-border-radius);
+}

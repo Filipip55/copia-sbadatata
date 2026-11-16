@@ -1,0 +1,18 @@
+<!-- Theme switch -->
+<div class="d-flex align-items-center justify-content-between px-2 py-2">
+  <label for="theme-switch" class="mx-2 d-flex align-items-center gap-2 mb-0">
+    <i class="bi bi-moon fs-6" aria-hidden="true"></i>
+    Dark mode
+  </label>
+
+  <div class="form-check form-switch mb-0">
+    <input
+      class="form-check-input"
+      type="checkbox"
+      role="switch"
+      id="theme-switch"
+      (change)="toggleTheme()"
+      [checked]="active() === 'dark'"
+    />
+  </div>
+</div>

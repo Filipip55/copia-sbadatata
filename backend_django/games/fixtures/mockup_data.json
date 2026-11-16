@@ -1,0 +1,1832 @@
+[
+  {
+    "model": "games.genre",
+    "pk": 1,
+    "fields": {
+      "name": "Racing",
+      "slug": "racing",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.genre",
+    "pk": 2,
+    "fields": {
+      "name": "Shooter",
+      "slug": "shooter",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.genre",
+    "pk": 3,
+    "fields": {
+      "name": "Adventure",
+      "slug": "adventure",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.genre",
+    "pk": 4,
+    "fields": {
+      "name": "Action",
+      "slug": "action",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.genre",
+    "pk": 5,
+    "fields": {
+      "name": "RPG",
+      "slug": "role-playing-games-rpg",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.genre",
+    "pk": 6,
+    "fields": {
+      "name": "Fighting",
+      "slug": "fighting",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.genre",
+    "pk": 7,
+    "fields": {
+      "name": "Puzzle",
+      "slug": "puzzle",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.genre",
+    "pk": 8,
+    "fields": {
+      "name": "Platformer",
+      "slug": "platformer",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.genre",
+    "pk": 9,
+    "fields": {
+      "name": "Strategy",
+      "slug": "strategy",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.genre",
+    "pk": 10,
+    "fields": {
+      "name": "Simulation",
+      "slug": "simulation",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.genre",
+    "pk": 11,
+    "fields": {
+      "name": "Casual",
+      "slug": "casual",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.genre",
+    "pk": 13,
+    "fields": {
+      "name": "Arcade",
+      "slug": "arcade",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.genre",
+    "pk": 14,
+    "fields": {
+      "name": "Board Games",
+      "slug": "board-games",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.genre",
+    "pk": 15,
+    "fields": {
+      "name": "Card",
+      "slug": "card",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.genre",
+    "pk": 16,
+    "fields": {
+      "name": "Educational",
+      "slug": "educational",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.genre",
+    "pk": 17,
+    "fields": {
+      "name": "Family",
+      "slug": "family",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.genre",
+    "pk": 18,
+    "fields": {
+      "name": "Sports",
+      "slug": "sports",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.genre",
+    "pk": 19,
+    "fields": {
+      "name": "Indie",
+      "slug": "indie",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.platform",
+    "pk": 4,
+    "fields": {
+      "name": "PC",
+      "slug": "pc",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.platform",
+    "pk": 187,
+    "fields": {
+      "name": "PlayStation 5",
+      "slug": "playstation5",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.platform",
+    "pk": 18,
+    "fields": {
+      "name": "PlayStation 4",
+      "slug": "playstation4",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.platform",
+    "pk": 16,
+    "fields": {
+      "name": "PlayStation 3",
+      "slug": "playstation3",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.platform",
+    "pk": 15,
+    "fields": {
+      "name": "Xbox",
+      "slug": "xbox-old",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.platform",
+    "pk": 14,
+    "fields": {
+      "name": "Xbox 360",
+      "slug": "xbox360",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.platform",
+    "pk": 1,
+    "fields": {
+      "name": "Xbox One",
+      "slug": "xbox-one",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.platform",
+    "pk": 186,
+    "fields": {
+      "name": "Xbox Series S/X",
+      "slug": "xbox-series-x",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.platform",
+    "pk": 7,
+    "fields": {
+      "name": "Nintendo Switch",
+      "slug": "nintendo-switch",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.platform",
+    "pk": 8,
+    "fields": {
+      "name": "Nintendo 3DS",
+      "slug": "nintendo-3ds",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.platform",
+    "pk": 9,
+    "fields": {
+      "name": "Nintendo DS",
+      "slug": "nintendo-ds",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.platform",
+    "pk": 11,
+    "fields": {
+      "name": "Wii",
+      "slug": "wii",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.platform",
+    "pk": 10,
+    "fields": {
+      "name": "Wii U",
+      "slug": "wii-u",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.platform",
+    "pk": 5,
+    "fields": {
+      "name": "macOS",
+      "slug": "macos",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.platform",
+    "pk": 6,
+    "fields": {
+      "name": "Linux",
+      "slug": "linux",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.platform",
+    "pk": 3,
+    "fields": {
+      "name": "iOS",
+      "slug": "ios",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.platform",
+    "pk": 21,
+    "fields": {
+      "name": "Android",
+      "slug": "android",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.platform",
+    "pk": 19,
+    "fields": {
+      "name": "PSP",
+      "slug": "psp",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.platform",
+    "pk": 17,
+    "fields": {
+      "name": "PS Vita",
+      "slug": "ps-vita",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.platform",
+    "pk": 13,
+    "fields": {
+      "name": "Neo Geo",
+      "slug": "neo-geo",
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.game",
+    "pk": 3498,
+    "fields": {
+      "slug": "grand-theft-auto-v",
+      "name": "Grand Theft Auto V",
+      "description": "<p>Grand Theft Auto V is an open-world action-adventure game set in Los Santos and Blaine County. Switch between three protagonists as their stories converge.</p>",
+      "metacritic": 97,
+      "rating": 4.97,
+      "released": "2013-09-17",
+      "tba": false,
+      "updated": "2023-12-05T08:25:10Z",
+      "background_image": "https://media.rawg.io/media/games/b11/b115b2bc6a5957a917bc7601f4abdda2.jpg",
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 1000,
+          "percent": 60.0
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 500,
+          "percent": 30.0
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 120,
+          "percent": 7.0
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 50,
+          "percent": 3.0
+        }
+      ],
+      "playtime": 74,
+      "metacritic_url": "https://www.metacritic.com/",
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          }
+        },
+        {
+          "platform": {
+            "id": 18,
+            "name": "PlayStation 4",
+            "slug": "playstation4"
+          }
+        },
+        {
+          "platform": {
+            "id": 1,
+            "name": "Xbox One",
+            "slug": "xbox-one"
+          }
+        },
+        {
+          "platform": {
+            "id": 7,
+            "name": "Nintendo Switch",
+            "slug": "nintendo-switch"
+          }
+        },
+        {
+          "platform": {
+            "id": 14,
+            "name": "Xbox 360",
+            "slug": "xbox360"
+          }
+        },
+        {
+          "platform": {
+            "id": 16,
+            "name": "PlayStation 3",
+            "slug": "playstation3"
+          }
+        }
+      ],
+      "platforms": [
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          },
+          "released_at": "2013-09-17",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 18,
+            "name": "PlayStation 4",
+            "slug": "playstation4"
+          },
+          "released_at": "2013-09-17",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 1,
+            "name": "Xbox One",
+            "slug": "xbox-one"
+          },
+          "released_at": "2013-09-17",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 7,
+            "name": "Nintendo Switch",
+            "slug": "nintendo-switch"
+          },
+          "released_at": "2013-09-17",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 14,
+            "name": "Xbox 360",
+            "slug": "xbox360"
+          },
+          "released_at": "2013-09-17",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 16,
+            "name": "PlayStation 3",
+            "slug": "playstation3"
+          },
+          "released_at": "2013-09-17",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        }
+      ],
+      "stores": [],
+      "genres": [
+        {
+          "id": 4,
+          "name": "Action",
+          "slug": "action"
+        },
+        {
+          "id": 3,
+          "name": "Adventure",
+          "slug": "adventure"
+        },
+        {
+          "id": 5,
+          "name": "RPG",
+          "slug": "role-playing-games-rpg"
+        }
+      ],
+      "tags": [],
+      "publishers": [
+        {
+          "id": 1,
+          "name": "Rockstar Games",
+          "slug": "rockstar-games"
+        }
+      ],
+      "esrb_rating": {
+        "id": 3,
+        "name": "Mature",
+        "slug": "mature"
+      },
+      "screenshots": [
+        {
+          "id": 1827219,
+          "image": "https://media.rawg.io/media/screenshots/1b4/1b4eefb4cc2a77d4d35bb4a6926f3189.jpg"
+        },
+        {
+          "id": 1827221,
+          "image": "https://media.rawg.io/media/screenshots/a7c/a7c43871a54bed6573a6a429451564ef.jpg"
+        },
+        {
+          "id": 1827222,
+          "image": "https://media.rawg.io/media/screenshots/cf4/cf4367daf6a1e33684bf19adb02d16d6.jpg"
+        },
+        {
+          "id": 99752,
+          "image": "https://media.rawg.io/media/screenshots/fb9/fb917e562f311f48ff8d27632bd29a80.jpg"
+        }
+      ],
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.game",
+    "pk": 5679,
+    "fields": {
+      "slug": "the-elder-scrolls-v-skyrim",
+      "name": "The Elder Scrolls V: Skyrim",
+      "description": "<p>The Elder Scrolls V: Skyrim is an open-world role-playing game set in the fantasy province of Skyrim. Explore the world, complete quests and shape your character.</p>",
+      "metacritic": 94,
+      "rating": 4.97,
+      "released": "2011-11-11",
+      "tba": false,
+      "updated": "2023-12-05T08:25:10Z",
+      "background_image": "https://media.rawg.io/media/games/148/1485f72434101885b098d4290bf0ba67.jpg",
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 1000,
+          "percent": 60.0
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 500,
+          "percent": 30.0
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 120,
+          "percent": 7.0
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 50,
+          "percent": 3.0
+        }
+      ],
+      "playtime": 45,
+      "metacritic_url": "https://www.metacritic.com/",
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          }
+        },
+        {
+          "platform": {
+            "id": 18,
+            "name": "PlayStation 4",
+            "slug": "playstation4"
+          }
+        },
+        {
+          "platform": {
+            "id": 1,
+            "name": "Xbox One",
+            "slug": "xbox-one"
+          }
+        },
+        {
+          "platform": {
+            "id": 7,
+            "name": "Nintendo Switch",
+            "slug": "nintendo-switch"
+          }
+        },
+        {
+          "platform": {
+            "id": 14,
+            "name": "Xbox 360",
+            "slug": "xbox360"
+          }
+        },
+        {
+          "platform": {
+            "id": 16,
+            "name": "PlayStation 3",
+            "slug": "playstation3"
+          }
+        }
+      ],
+      "platforms": [
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          },
+          "released_at": "2011-11-11",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 18,
+            "name": "PlayStation 4",
+            "slug": "playstation4"
+          },
+          "released_at": "2011-11-11",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 1,
+            "name": "Xbox One",
+            "slug": "xbox-one"
+          },
+          "released_at": "2011-11-11",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 7,
+            "name": "Nintendo Switch",
+            "slug": "nintendo-switch"
+          },
+          "released_at": "2011-11-11",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 14,
+            "name": "Xbox 360",
+            "slug": "xbox360"
+          },
+          "released_at": "2011-11-11",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 16,
+            "name": "PlayStation 3",
+            "slug": "playstation3"
+          },
+          "released_at": "2011-11-11",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        }
+      ],
+      "stores": [],
+      "genres": [
+        {
+          "id": 4,
+          "name": "Action",
+          "slug": "action"
+        },
+        {
+          "id": 5,
+          "name": "RPG",
+          "slug": "role-playing-games-rpg"
+        }
+      ],
+      "tags": [],
+      "publishers": [
+        {
+          "id": 1,
+          "name": "Bethesda Softworks",
+          "slug": "bethesda-softworks"
+        }
+      ],
+      "esrb_rating": {
+        "id": 3,
+        "name": "Mature",
+        "slug": "mature"
+      },
+      "screenshots": [
+        {
+          "id": 118307,
+          "image": "https://media.rawg.io/media/screenshots/3bd/3bd2710bd1ffb6664fdea7b83afd067e.jpg"
+        },
+        {
+          "id": 118308,
+          "image": "https://media.rawg.io/media/screenshots/d4e/d4e9b13f54748584ccbd6f998094dade.jpg"
+        },
+        {
+          "id": 118309,
+          "image": "https://media.rawg.io/media/screenshots/599/59946a630e9c7871003763d63184404a.jpg"
+        },
+        {
+          "id": 118310,
+          "image": "https://media.rawg.io/media/screenshots/c5d/c5dad426038d7d12f933eedbeab48ff3.jpg"
+        }
+      ],
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.game",
+    "pk": 802,
+    "fields": {
+      "slug": "borderlands-2",
+      "name": "Borderlands 2",
+      "description": "<p>Borderlands 2 combines first-person shooting and role-playing systems in a cel-shaded world. Play alone or cooperate with friends to hunt for loot.</p>",
+      "metacritic": 89,
+      "rating": 4.97,
+      "released": "2012-09-18",
+      "tba": false,
+      "updated": "2023-12-05T08:25:10Z",
+      "background_image": "https://media.rawg.io/media/games/588/588c6bdff3d4baf66ec36b1c05b793bf.jpg",
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 1000,
+          "percent": 60.0
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 500,
+          "percent": 30.0
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 120,
+          "percent": 7.0
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 50,
+          "percent": 3.0
+        }
+      ],
+      "playtime": 20,
+      "metacritic_url": "https://www.metacritic.com/",
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          }
+        },
+        {
+          "platform": {
+            "id": 18,
+            "name": "PlayStation 4",
+            "slug": "playstation4"
+          }
+        },
+        {
+          "platform": {
+            "id": 1,
+            "name": "Xbox One",
+            "slug": "xbox-one"
+          }
+        },
+        {
+          "platform": {
+            "id": 14,
+            "name": "Xbox 360",
+            "slug": "xbox360"
+          }
+        },
+        {
+          "platform": {
+            "id": 16,
+            "name": "PlayStation 3",
+            "slug": "playstation3"
+          }
+        }
+      ],
+      "platforms": [
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          },
+          "released_at": "2012-09-18",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 18,
+            "name": "PlayStation 4",
+            "slug": "playstation4"
+          },
+          "released_at": "2012-09-18",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 1,
+            "name": "Xbox One",
+            "slug": "xbox-one"
+          },
+          "released_at": "2012-09-18",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 14,
+            "name": "Xbox 360",
+            "slug": "xbox360"
+          },
+          "released_at": "2012-09-18",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 16,
+            "name": "PlayStation 3",
+            "slug": "playstation3"
+          },
+          "released_at": "2012-09-18",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        }
+      ],
+      "stores": [],
+      "genres": [
+        {
+          "id": 4,
+          "name": "Action",
+          "slug": "action"
+        },
+        {
+          "id": 2,
+          "name": "Shooter",
+          "slug": "shooter"
+        },
+        {
+          "id": 5,
+          "name": "RPG",
+          "slug": "role-playing-games-rpg"
+        }
+      ],
+      "tags": [],
+      "publishers": [
+        {
+          "id": 1,
+          "name": "2K",
+          "slug": "2k"
+        }
+      ],
+      "esrb_rating": {
+        "id": 3,
+        "name": "Mature",
+        "slug": "mature"
+      },
+      "screenshots": [
+        {
+          "id": 7041,
+          "image": "https://media.rawg.io/media/screenshots/adb/adbbb37113618ee107459cd5c344f2a8.jpg"
+        },
+        {
+          "id": 7062,
+          "image": "https://media.rawg.io/media/screenshots/616/61643dd96e936d29eb68cf53b2334e53.jpg"
+        },
+        {
+          "id": 98549,
+          "image": "https://media.rawg.io/media/screenshots/bf0/bf07e2c6d2c888d372917d9ef453c8a4.jpg"
+        },
+        {
+          "id": 98550,
+          "image": "https://media.rawg.io/media/screenshots/9d3/9d38833952812ad7888a6dc21699934f.jpg"
+        }
+      ],
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.game",
+    "pk": 1030,
+    "fields": {
+      "slug": "limbo",
+      "name": "Limbo",
+      "description": "<p>Limbo is a dark puzzle-platformer in which a boy searches for his sister in a dangerous, monochrome world.</p>",
+      "metacritic": 88,
+      "rating": 4.97,
+      "released": "2010-07-21",
+      "tba": false,
+      "updated": "2023-12-05T08:25:10Z",
+      "background_image": "https://media.rawg.io/media/games/929/9295e55ce69cf5337c567983cf8b4137.jpeg",
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 1000,
+          "percent": 60.0
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 500,
+          "percent": 30.0
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 120,
+          "percent": 7.0
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 50,
+          "percent": 3.0
+        }
+      ],
+      "playtime": 3,
+      "metacritic_url": "https://www.metacritic.com/",
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          }
+        },
+        {
+          "platform": {
+            "id": 18,
+            "name": "PlayStation 4",
+            "slug": "playstation4"
+          }
+        },
+        {
+          "platform": {
+            "id": 1,
+            "name": "Xbox One",
+            "slug": "xbox-one"
+          }
+        },
+        {
+          "platform": {
+            "id": 7,
+            "name": "Nintendo Switch",
+            "slug": "nintendo-switch"
+          }
+        },
+        {
+          "platform": {
+            "id": 5,
+            "name": "macOS",
+            "slug": "macos"
+          }
+        },
+        {
+          "platform": {
+            "id": 6,
+            "name": "Linux",
+            "slug": "linux"
+          }
+        }
+      ],
+      "platforms": [
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          },
+          "released_at": "2010-07-21",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 18,
+            "name": "PlayStation 4",
+            "slug": "playstation4"
+          },
+          "released_at": "2010-07-21",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 1,
+            "name": "Xbox One",
+            "slug": "xbox-one"
+          },
+          "released_at": "2010-07-21",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 7,
+            "name": "Nintendo Switch",
+            "slug": "nintendo-switch"
+          },
+          "released_at": "2010-07-21",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 5,
+            "name": "macOS",
+            "slug": "macos"
+          },
+          "released_at": "2010-07-21",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 6,
+            "name": "Linux",
+            "slug": "linux"
+          },
+          "released_at": "2010-07-21",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        }
+      ],
+      "stores": [],
+      "genres": [
+        {
+          "id": 4,
+          "name": "Action",
+          "slug": "action"
+        },
+        {
+          "id": 3,
+          "name": "Adventure",
+          "slug": "adventure"
+        },
+        {
+          "id": 19,
+          "name": "Indie",
+          "slug": "indie"
+        },
+        {
+          "id": 7,
+          "name": "Puzzle",
+          "slug": "puzzle"
+        },
+        {
+          "id": 8,
+          "name": "Platformer",
+          "slug": "platformer"
+        }
+      ],
+      "tags": [],
+      "publishers": [
+        {
+          "id": 1,
+          "name": "Playdead",
+          "slug": "playdead"
+        }
+      ],
+      "esrb_rating": {
+        "id": 2,
+        "name": "Teen",
+        "slug": "teen"
+      },
+      "screenshots": [
+        {
+          "id": 30985,
+          "image": "https://media.rawg.io/media/screenshots/512/512f4bc2092016478ddcb9e7e60aeec0.jpg"
+        },
+        {
+          "id": 30986,
+          "image": "https://media.rawg.io/media/screenshots/63d/63d30699e8fcab9c808e6714d9d3fd59.jpg"
+        },
+        {
+          "id": 30987,
+          "image": "https://media.rawg.io/media/screenshots/de0/de04bbc0fd9904071ef25bf23113c8c4.jpg"
+        },
+        {
+          "id": 30988,
+          "image": "https://media.rawg.io/media/screenshots/eed/eedbbca4ae2debf2d4e23e55d1f6cff7.jpg"
+        }
+      ],
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.game",
+    "pk": 5286,
+    "fields": {
+      "slug": "tomb-raider",
+      "name": "Tomb Raider",
+      "description": "<p>Tomb Raider follows Lara Croft's first expedition, combining exploration, traversal, environmental puzzles and combat.</p>",
+      "metacritic": 86,
+      "rating": 4.97,
+      "released": "2013-03-05",
+      "tba": false,
+      "updated": "2023-12-05T08:25:10Z",
+      "background_image": "https://media.rawg.io/media/games/81b/81b138691f027ed1f8720758daa0d895.jpg",
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 1000,
+          "percent": 60.0
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 500,
+          "percent": 30.0
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 120,
+          "percent": 7.0
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 50,
+          "percent": 3.0
+        }
+      ],
+      "playtime": 10,
+      "metacritic_url": "https://www.metacritic.com/",
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          }
+        },
+        {
+          "platform": {
+            "id": 18,
+            "name": "PlayStation 4",
+            "slug": "playstation4"
+          }
+        },
+        {
+          "platform": {
+            "id": 1,
+            "name": "Xbox One",
+            "slug": "xbox-one"
+          }
+        },
+        {
+          "platform": {
+            "id": 7,
+            "name": "Nintendo Switch",
+            "slug": "nintendo-switch"
+          }
+        },
+        {
+          "platform": {
+            "id": 14,
+            "name": "Xbox 360",
+            "slug": "xbox360"
+          }
+        },
+        {
+          "platform": {
+            "id": 16,
+            "name": "PlayStation 3",
+            "slug": "playstation3"
+          }
+        }
+      ],
+      "platforms": [
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          },
+          "released_at": "2013-03-05",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 18,
+            "name": "PlayStation 4",
+            "slug": "playstation4"
+          },
+          "released_at": "2013-03-05",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 1,
+            "name": "Xbox One",
+            "slug": "xbox-one"
+          },
+          "released_at": "2013-03-05",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 7,
+            "name": "Nintendo Switch",
+            "slug": "nintendo-switch"
+          },
+          "released_at": "2013-03-05",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 14,
+            "name": "Xbox 360",
+            "slug": "xbox360"
+          },
+          "released_at": "2013-03-05",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 16,
+            "name": "PlayStation 3",
+            "slug": "playstation3"
+          },
+          "released_at": "2013-03-05",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        }
+      ],
+      "stores": [],
+      "genres": [
+        {
+          "id": 4,
+          "name": "Action",
+          "slug": "action"
+        },
+        {
+          "id": 3,
+          "name": "Adventure",
+          "slug": "adventure"
+        }
+      ],
+      "tags": [],
+      "publishers": [
+        {
+          "id": 1,
+          "name": "Square Enix",
+          "slug": "square-enix"
+        }
+      ],
+      "esrb_rating": {
+        "id": 3,
+        "name": "Mature",
+        "slug": "mature"
+      },
+      "screenshots": [
+        {
+          "id": 99160,
+          "image": "https://media.rawg.io/media/screenshots/4f9/4f9d5efdecfb63cb99f1baa4c0ceb3bf.jpg"
+        },
+        {
+          "id": 99161,
+          "image": "https://media.rawg.io/media/screenshots/80f/80f373082b2a74da3f9c3fe2b877dcd0.jpg"
+        },
+        {
+          "id": 99162,
+          "image": "https://media.rawg.io/media/screenshots/a87/a8733e877f8fbe45e4a727c22a06aa2e.jpg"
+        },
+        {
+          "id": 99163,
+          "image": "https://media.rawg.io/media/screenshots/3f9/3f91678c6805a76419fa4ea3a045a909.jpg"
+        }
+      ],
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.game",
+    "pk": 11859,
+    "fields": {
+      "slug": "team-fortress-2",
+      "name": "Team Fortress 2",
+      "description": "<p>Team Fortress 2 is a team-based multiplayer shooter built around distinct character classes, objectives and cartoon-inspired visual design.</p>",
+      "metacritic": 92,
+      "rating": 4.97,
+      "released": "2007-10-10",
+      "tba": false,
+      "updated": "2023-12-05T08:25:10Z",
+      "background_image": "https://media.rawg.io/media/games/8e0/8e032ac4faf1136e7d708bb3ac61af23.jpg",
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 1000,
+          "percent": 60.0
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 500,
+          "percent": 30.0
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 120,
+          "percent": 7.0
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 50,
+          "percent": 3.0
+        }
+      ],
+      "playtime": 22,
+      "metacritic_url": "https://www.metacritic.com/",
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          }
+        },
+        {
+          "platform": {
+            "id": 6,
+            "name": "Linux",
+            "slug": "linux"
+          }
+        }
+      ],
+      "platforms": [
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          },
+          "released_at": "2007-10-10",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 6,
+            "name": "Linux",
+            "slug": "linux"
+          },
+          "released_at": "2007-10-10",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        }
+      ],
+      "stores": [],
+      "genres": [
+        {
+          "id": 4,
+          "name": "Action",
+          "slug": "action"
+        },
+        {
+          "id": 2,
+          "name": "Shooter",
+          "slug": "shooter"
+        }
+      ],
+      "tags": [],
+      "publishers": [
+        {
+          "id": 1,
+          "name": "Valve",
+          "slug": "valve"
+        }
+      ],
+      "esrb_rating": {
+        "id": 3,
+        "name": "Mature",
+        "slug": "mature"
+      },
+      "screenshots": [
+        {
+          "id": 97905,
+          "image": "https://media.rawg.io/media/screenshots/596/5968ba06bac8bee0ec7e9d03c970c421.jpg"
+        },
+        {
+          "id": 97906,
+          "image": "https://media.rawg.io/media/screenshots/94f/94f4eb0b3d1fde7a37ec84f0f66f7f87.jpg"
+        },
+        {
+          "id": 97907,
+          "image": "https://media.rawg.io/media/screenshots/a0a/a0ad82cad18d0a2466d1d5f12bf8858c.jpg"
+        },
+        {
+          "id": 97908,
+          "image": "https://media.rawg.io/media/screenshots/a83/a83038d2ec296522ab1b9ab0521b1ec3.jpg"
+        }
+      ],
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.game",
+    "pk": 13537,
+    "fields": {
+      "slug": "half-life-2",
+      "name": "Half-Life 2",
+      "description": "<p>Half-Life 2 is a first-person action game in which Gordon Freeman fights through a world transformed by an alien occupation.</p>",
+      "metacritic": 96,
+      "rating": 4.97,
+      "released": "2004-11-16",
+      "tba": false,
+      "updated": "2023-12-05T08:25:10Z",
+      "background_image": "https://media.rawg.io/media/games/b8c/b8c243eaa0fbac8115e0cdccac3f91dc.jpg",
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 1000,
+          "percent": 60.0
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 500,
+          "percent": 30.0
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 120,
+          "percent": 7.0
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 50,
+          "percent": 3.0
+        }
+      ],
+      "playtime": 12,
+      "metacritic_url": "https://www.metacritic.com/",
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          }
+        },
+        {
+          "platform": {
+            "id": 6,
+            "name": "Linux",
+            "slug": "linux"
+          }
+        }
+      ],
+      "platforms": [
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          },
+          "released_at": "2004-11-16",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 6,
+            "name": "Linux",
+            "slug": "linux"
+          },
+          "released_at": "2004-11-16",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        }
+      ],
+      "stores": [],
+      "genres": [
+        {
+          "id": 4,
+          "name": "Action",
+          "slug": "action"
+        },
+        {
+          "id": 2,
+          "name": "Shooter",
+          "slug": "shooter"
+        }
+      ],
+      "tags": [],
+      "publishers": [
+        {
+          "id": 1,
+          "name": "Valve",
+          "slug": "valve"
+        }
+      ],
+      "esrb_rating": {
+        "id": 3,
+        "name": "Mature",
+        "slug": "mature"
+      },
+      "screenshots": [
+        {
+          "id": 115804,
+          "image": "https://media.rawg.io/media/screenshots/8af/8af6188357426890cbc8c8a34d9e7b75.jpg"
+        },
+        {
+          "id": 115805,
+          "image": "https://media.rawg.io/media/screenshots/3b5/3b542c954ba5bd2f32da067c8122cd80.jpg"
+        },
+        {
+          "id": 115806,
+          "image": "https://media.rawg.io/media/screenshots/3d6/3d6066e45d259d2e83bf6767e6113d94.jpg"
+        },
+        {
+          "id": 115807,
+          "image": "https://media.rawg.io/media/screenshots/e49/e49327df2404df6c5dafa8eac7990852.jpg"
+        }
+      ],
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  },
+  {
+    "model": "games.game",
+    "pk": 4286,
+    "fields": {
+      "slug": "bioshock",
+      "name": "BioShock",
+      "description": "<p>BioShock is a first-person shooter set in Rapture, an underwater city shaped by the ambitions of its founder and its inhabitants.</p>",
+      "metacritic": 96,
+      "rating": 4.97,
+      "released": "2007-08-21",
+      "tba": false,
+      "updated": "2023-12-05T08:25:10Z",
+      "background_image": "https://media.rawg.io/media/games/bc0/bc06a29ceac58652b684deefe7d56099.jpg",
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 1000,
+          "percent": 60.0
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 500,
+          "percent": 30.0
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 120,
+          "percent": 7.0
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 50,
+          "percent": 3.0
+        }
+      ],
+      "playtime": 11,
+      "metacritic_url": "https://www.metacritic.com/",
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          }
+        },
+        {
+          "platform": {
+            "id": 18,
+            "name": "PlayStation 4",
+            "slug": "playstation4"
+          }
+        },
+        {
+          "platform": {
+            "id": 1,
+            "name": "Xbox One",
+            "slug": "xbox-one"
+          }
+        },
+        {
+          "platform": {
+            "id": 14,
+            "name": "Xbox 360",
+            "slug": "xbox360"
+          }
+        },
+        {
+          "platform": {
+            "id": 16,
+            "name": "PlayStation 3",
+            "slug": "playstation3"
+          }
+        }
+      ],
+      "platforms": [
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc"
+          },
+          "released_at": "2007-08-21",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 18,
+            "name": "PlayStation 4",
+            "slug": "playstation4"
+          },
+          "released_at": "2007-08-21",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 1,
+            "name": "Xbox One",
+            "slug": "xbox-one"
+          },
+          "released_at": "2007-08-21",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 14,
+            "name": "Xbox 360",
+            "slug": "xbox360"
+          },
+          "released_at": "2007-08-21",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        },
+        {
+          "platform": {
+            "id": 16,
+            "name": "PlayStation 3",
+            "slug": "playstation3"
+          },
+          "released_at": "2007-08-21",
+          "requirements": {
+            "minimum": null,
+            "recommended": null
+          }
+        }
+      ],
+      "stores": [],
+      "genres": [
+        {
+          "id": 4,
+          "name": "Action",
+          "slug": "action"
+        },
+        {
+          "id": 2,
+          "name": "Shooter",
+          "slug": "shooter"
+        },
+        {
+          "id": 5,
+          "name": "RPG",
+          "slug": "role-playing-games-rpg"
+        }
+      ],
+      "tags": [],
+      "publishers": [
+        {
+          "id": 1,
+          "name": "2K",
+          "slug": "2k"
+        }
+      ],
+      "esrb_rating": {
+        "id": 3,
+        "name": "Mature",
+        "slug": "mature"
+      },
+      "screenshots": [
+        {
+          "id": 170993,
+          "image": "https://media.rawg.io/media/screenshots/01f/01f62d7064838a5c3202acfc61503487.jpg"
+        },
+        {
+          "id": 170994,
+          "image": "https://media.rawg.io/media/screenshots/7f5/7f517e07e36e4af5a7c0b86a7d42853f.jpg"
+        },
+        {
+          "id": 170995,
+          "image": "https://media.rawg.io/media/screenshots/aca/aca089b963a42ec4cbf56b5e5334af8e.jpg"
+        },
+        {
+          "id": 170996,
+          "image": "https://media.rawg.io/media/screenshots/3aa/3aa6f71eba1d64e671bd45826ca96560.jpg"
+        }
+      ],
+      "cached_at": "2026-11-04T12:00:00Z"
+    }
+  }
+]

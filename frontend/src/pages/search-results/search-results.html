@@ -1,0 +1,38 @@
+<div class="container search-results-page mt-3 mt-lg-5 px-4">
+  <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-4">
+    <div>
+      @if (searchQuery()) {
+        <h1 class="fs-4 fw-semibold">Results for «{{ searchQuery() }}»</h1>
+      } @else {
+        <h1 class="fs-4 fw-semibold">Search results:</h1>
+      }
+
+      @if (totalCount() > 0) {
+        <p class="text-body-secondary mb-0">
+          {{ totalCount() }}{{ countIsExact() ? '' : '+' }}
+          {{ totalCount() === 1 && countIsExact() ? 'game found' : 'games found' }}
+        </p>
+      }
+    </div>
+  </div>
+
+  <app-game-grid
+    [games]="games()"
+    [loading]="loading()"
+    [error]="error()"
+    [hasMore]="hasMore()"
+    [platformNames]="platformNames()"
+    [favoriteIds]="library.favoriteIds()"
+    [wishlistIds]="library.wishlistIds()"
+    [emptyMessage]="hasCriteria() ? 'No results found for this search.' : 'No search specified.'"
+    [emptyHint]="
+      hasCriteria()
+        ? 'Try different search terms or adjust the filters.'
+        : 'Use the search bar above or open the filters to start a search.'
+    "
+    (loadMore)="onLoadMore()"
+    (retry)="onRetry()"
+    (favoriteToggle)="onFavoriteToggle($event)"
+    (wishlistToggle)="onWishlistToggle($event)"
+  />
+</div>

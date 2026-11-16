@@ -1,0 +1,104 @@
+<div class="d-flex flex-column vh-100 justify-content-center align-items-center position-relative">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
+        <div class="auth-back-btn mt-lg-4 ml-lg-6 ml-4 px-lg-4">
+          <a
+            routerLink="/"
+            class="btn btn-outline-secondary d-inline-flex align-items-center gap-2"
+          >
+            <i class="bi bi-arrow-left" aria-hidden="true"></i>
+            Back to home
+          </a>
+        </div>
+        <section class="card gi-card">
+          <div class="card-body p-4 p-sm-5 text-body-secondary">
+            <h1 class="gi-brand h2 mb-1">
+              @if (activeTheme() === 'dark') {
+                <img class="gi-brand-logo" src="/brand/logo-dark.svg" alt="Game Inn" />
+              } @else {
+                <img class="gi-brand-logo" src="/brand/logo-light.svg" alt="Game Inn" />
+              }
+            </h1>
+            <p class="gi-subtitle mb-4 fw-light">Sign in to your account</p>
+
+            @if (successMessage) {
+              <div class="alert alert-success" role="status">{{ successMessage }}</div>
+            }
+
+            @if (generalError) {
+              <div class="alert alert-danger" role="alert">{{ generalError }}</div>
+            }
+
+            <form [formGroup]="loginForm" (ngSubmit)="submit()" novalidate>
+              <div class="gi-field">
+                <label for="username" class="gi-label">Username or email</label>
+                <input
+                  id="username"
+                  type="text"
+                  class="form-control form-control-lg gi-input border"
+                  [class.is-invalid]="username.touched && username.errors"
+                  formControlName="username"
+                  autocomplete="username"
+                  inputmode="email"
+                />
+                @if (username.touched && username.errors) {
+                  <div class="invalid-feedback d-block" role="alert">
+                    @if (username.errors['required']) {
+                      Username or email is required.
+                    }
+                    @if (username.errors['api']) {
+                      {{ username.errors['api'] }}
+                    }
+                  </div>
+                }
+              </div>
+
+              <div class="gi-field">
+                <label for="password" class="gi-label">Password</label>
+                <input
+                  id="password"
+                  type="password"
+                  class="form-control form-control-lg gi-input border"
+                  [class.is-invalid]="password.touched && password.errors"
+                  formControlName="password"
+                  autocomplete="current-password"
+                />
+                @if (password.touched && password.errors) {
+                  <div class="invalid-feedback d-block" role="alert">
+                    @if (password.errors['required']) {
+                      Password is required.
+                    }
+                    @if (password.errors['minlength']) {
+                      Password must be at least 10 characters long.
+                    }
+                    @if (password.errors['api']) {
+                      {{ password.errors['api'] }}
+                    }
+                  </div>
+                }
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-primary btn-lg w-100 mb-3"
+                [disabled]="isSubmitting"
+              >
+                @if (isSubmitting) {
+                  <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                  Logging in…
+                } @else {
+                  Log in
+                }
+              </button>
+            </form>
+
+            <p class="gi-footer mb-0 fw-light">
+              Don't have an account? <a routerLink="/register">Register</a>
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

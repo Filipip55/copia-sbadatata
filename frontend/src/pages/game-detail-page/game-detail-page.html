@@ -1,0 +1,220 @@
+<div class="container py-5 mt-5">
+  @if (loading()) {
+    <div
+      class="d-flex flex-column align-items-center justify-content-center py-5"
+      role="status"
+      aria-live="polite"
+      aria-label="Loading game details"
+    >
+      <div class="spinner-border text-primary mb-3" aria-hidden="true"></div>
+      <p class="">Loading game details...</p>
+    </div>
+  } @else if (error()) {
+    <div class="alert alert-danger" role="alert" aria-live="assertive">
+      {{ error() }}
+    </div>
+  } @else if (game(); as game) {
+    <!-- Hero -->
+    <section class="row g-4 mb-5 game-detail-section" aria-labelledby="game-title">
+      @if (game.artwork_urls.length > 0) {
+        <div class="game-hero-background mt-0" aria-hidden="true">
+          @for (artwork of game.artwork_urls; track artwork) {
+            <div
+              class="game-hero-background-image"
+              [class.static]="game.artwork_urls.length === 1"
+              [style.background-image]="'url(' + artwork + ')'"
+            ></div>
+          }
+        </div>
+      }
+
+      <div class="row g-4 position-relative">
+        <div
+          class="col-12 col-md-4 col-lg-3 d-flex justify-content-center justify-content-md-start"
+        >
+          @if (game.cover_url) {
+            <img
+              [src]="game.cover_url"
+              [alt]="game.name + ' cover'"
+              class="img-fluid rounded-4 shadow"
+            />
+          }
+        </div>
+
+        <div class="col-12 col-md-8 col-lg-9 d-flex flex-column justify-content-center">
+          <h1 id="game-title" class="display-4 fw-bold mb-4 no-change">
+            {{ game.name }}
+          </h1>
+
+          <div class="d-flex flex-wrap gap-3 no-change" aria-label="Game ratings">
+            @if (game.rating !== null) {
+              <div class="rating-card rounded-3 p-3">
+                <span class="d-block small"> User Rating </span>
+                <span class="fs-3 fw-bold">
+                  {{ game.rating | number: '1.1-1' }}
+                </span>
+              </div>
+            }
+
+            @if (game.aggregated_rating !== null) {
+              <div class="metacritic-card rounded-3 p-3">
+                <span class="d-block small"> Metacritic Score </span>
+                <span class="fs-3 fw-bold">
+                  {{ game.aggregated_rating | number: '1.0-0' }}
+                </span>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Description -->
+    @if (game.summary) {
+      <section class="mb-5 no-change" aria-labelledby="description-heading">
+        <h2 id="description-heading" class="h3 fw-bold mb-3">Description</h2>
+        <p class="lh-lg">
+          {{ game.summary }}
+        </p>
+      </section>
+    }
+
+    <!-- Game information -->
+    <section class="mb-5 no-change" aria-labelledby="game-info-heading">
+      <h2 id="game-info-heading" class="h3 fw-bold mb-4">Game Information</h2>
+
+      <div class="row g-4">
+        <!-- Genres -->
+        @if (game.genres.length > 0) {
+          <div class="col-12 col-md-6">
+            <h3 class="h6 fw-bold mb-2">Genres</h3>
+            <div class="d-flex flex-wrap gap-2">
+              @for (genre of game.genres; track genre.id) {
+                <span class="badge text-bg-secondary">
+                  {{ genre.name }}
+                </span>
+              }
+            </div>
+          </div>
+        }
+
+        <!-- Platforms -->
+        @if (game.platforms.length > 0) {
+          <div class="col-12 col-md-6">
+            <h3 class="h6 fw-bold mb-2">Platforms</h3>
+            <div class="d-flex flex-wrap gap-2">
+              @for (platform of game.platforms; track platform.id) {
+                <span class="badge text-bg-secondary">
+                  {{ platform.name }}
+                </span>
+              }
+            </div>
+          </div>
+        }
+
+        <!-- Developers -->
+        @if (developers().length > 0) {
+          <div class="col-12 col-md-6">
+            <h3 class="h6 fw-bold mb-2">Developer</h3>
+            <p class="mb-0">{{ developers().join(', ') }}</p>
+          </div>
+        }
+
+        <!-- Publishers -->
+        @if (publishers().length > 0) {
+          <div class="col-12 col-md-6">
+            <h3 class="h6 fw-bold mb-2">Publisher</h3>
+            <p class="mb-0">{{ publishers().join(', ') }}</p>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- User actions -->
+    <section class="d-flex flex-column flex-sm-row gap-2 mb-5" aria-label="Manage your game lists">
+      <button
+        type="button"
+        class="btn flex-fill"
+        [class.btn-danger]="!isFavorite()"
+        [class.btn-outline-danger]="isFavorite()"
+        [attr.aria-pressed]="isFavorite()"
+        [attr.aria-label]="
+          isFavorite()
+            ? 'Remove ' + game.name + ' from favorites'
+            : 'Add ' + game.name + ' to favorites'
+        "
+        (click)="toggleFavorite()"
+      >
+        <i
+          class="bi me-2"
+          [class.bi-heart]="!isFavorite()"
+          [class.bi-heart-fill]="isFavorite()"
+          aria-hidden="true"
+        ></i>
+        {{ isFavorite() ? 'Remove from favorites' : 'Add to favorites' }}
+      </button>
+
+      <button
+        type="button"
+        class="btn-primary btn flex-fill"
+        [class.btn-primary]="!isInWishlist()"
+        [class.btn-outline-primary]="isInWishlist()"
+        [attr.aria-pressed]="isInWishlist()"
+        [attr.aria-label]="
+          isInWishlist()
+            ? 'Remove ' + game.name + ' from wishlist'
+            : 'Add ' + game.name + ' to wishlist'
+        "
+        (click)="toggleWishlist()"
+      >
+        <i
+          class="bi me-2"
+          [class.bi-bookmark-plus]="!isInWishlist()"
+          [class.bi-bookmark-check-fill]="isInWishlist()"
+          aria-hidden="true"
+        ></i>
+        {{ isInWishlist() ? 'Remove from wishlist' : 'Add to wishlist' }}
+      </button>
+    </section>
+
+    <!-- Screenshots -->
+    @if (game.screenshots.length > 0) {
+      <section class="mb-5" aria-labelledby="screenshots-heading">
+        <h2 id="screenshots-heading" class="h3 fw-bold mb-4">Screenshots</h2>
+
+        <div class="row g-3">
+          @for (screenshot of game.screenshots; track screenshot.id) {
+            <div class="col-12 col-md-6">
+              <img
+                [src]="screenshot.image"
+                [alt]="game.name + ' gameplay screenshot ' + ($index + 1)"
+                class="img-fluid rounded-3 w-100"
+                loading="lazy"
+              />
+            </div>
+          }
+        </div>
+      </section>
+    }
+
+    <!-- Artwork -->
+    @if (game.artwork_urls.length > 0) {
+      <section class="mb-5" aria-labelledby="artwork-heading">
+        <h2 id="artwork-heading" class="h3 fw-bold mb-4">Artwork</h2>
+
+        <div class="row g-3">
+          @for (artwork of game.artwork_urls; track artwork) {
+            <div class="col-12 col-md-6 col-lg-4">
+              <img
+                [src]="artwork"
+                [alt]="game.name + ' promotional artwork ' + ($index + 1)"
+                class="img-fluid rounded-3 w-100"
+                loading="lazy"
+              />
+            </div>
+          }
+        </div>
+      </section>
+    }
+  }
+</div>

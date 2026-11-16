@@ -1,0 +1,61 @@
+<div
+  id="featuredGamesCarousel"
+  class="carousel slide w-100 overflow-hidden text-body"
+  data-bs-ride="carousel"
+  data-bs-interval="6000"
+>
+  <div class="carousel-indicators">
+    @for (game of games(); track game.id; let i = $index) {
+      <button
+        type="button"
+        [attr.data-bs-target]="'#' + carouselId"
+        [attr.data-bs-slide-to]="i"
+        [class.active]="i === 0"
+        [attr.aria-current]="i === 0 ? 'true' : null"
+        [attr.aria-label]="'Slide ' + (i + 1)"
+      ></button>
+    }
+  </div>
+
+  <div class="carousel-inner">
+    @for (game of games(); track game.id; let i = $index) {
+      <div class="carousel-item" [class.active]="i === 0">
+        <img
+          [src]="game.artwork_urls?.[0] || game.cover_url"
+          class="d-block w-100 featured-image"
+          [alt]="game.name"
+        />
+
+        <div class="carousel-caption text-start mx-3 featured-caption">
+          <h2 class="mb-1">{{ game.name }}</h2>
+
+          @if (game.aggregated_rating != null) {
+            <p>Metacritic: {{ game.aggregated_rating | number: '1.0-0' }}/100</p>
+          }
+
+          <a class="btn btn-primary mt-2" [routerLink]="['/games', game.id]"> Explore Game </a>
+        </div>
+      </div>
+    }
+  </div>
+
+  <button
+    class="carousel-control-prev d-none d-md-block"
+    type="button"
+    [attr.data-bs-target]="'#' + carouselId"
+    data-bs-slide="prev"
+    aria-label="Previous"
+  >
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+
+  <button
+    class="carousel-control-next d-none d-md-block"
+    type="button"
+    [attr.data-bs-target]="'#' + carouselId"
+    data-bs-slide="next"
+    aria-label="Next"
+  >
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>

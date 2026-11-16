@@ -1,0 +1,67 @@
+<section #sectionElement class="my-5 text-body-secondary app-genre-section">
+  <h2 class="h4 mb-3">
+    <a
+      [routerLink]="['/search-results']"
+      [queryParams]="{ genres: genre().id }"
+      class="genre-title-link text-decoration-none d-inline-flex align-items-center gap-2"
+      [attr.aria-label]="'Visualizza tutti i giochi del genere ' + genre().name"
+      [title]="'Vedi tutti i giochi del genere ' + genre().name"
+    >
+      <span>{{ genre().name }}</span>
+      <i
+        style="margin-top: 4px"
+        class="bi bi-chevron-right fs-6 genre-chevron"
+        aria-hidden="true"
+      ></i>
+    </a>
+  </h2>
+  <div class="position-relative">
+    <button
+      type="button"
+      class="btn shadow btn-secondary rounded-circle scroll-btn scroll-prev d-none d-md-flex"
+      aria-label="Scroll left"
+      (click)="scrollGames(-1)"
+    >
+      <i class="bi bi-chevron-left"></i>
+    </button>
+
+    <div class="games-scroller-wrapper">
+      <div
+        #gamesScroller
+        class="d-flex flex-nowrap gap-3 overflow-auto py-2 games-scroller"
+        (scroll)="onScroll($event)"
+      >
+        @for (game of games(); track game.id) {
+          <div class="game-card-wrapper flex-shrink-0 rounded-2 shadow-sm">
+            <app-game-card
+              [game]="game"
+              [platformLabels]="labelsFor(game)"
+              [isFavorite]="library.favoriteIds().has(game.id)"
+              [isWishlisted]="library.wishlistIds().has(game.id)"
+              (favoriteToggle)="onFavoriteToggle($event)"
+              (wishlistToggle)="onWishlistToggle($event)"
+            />
+          </div>
+        }
+        @if (isLoading()) {
+          <div class="game-card-wrapper loading-card flex-shrink-0">
+            <div class="d-flex justify-content-center align-items-center h-100">
+              <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Caricamento giochi...</span>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <button
+      type="button"
+      class="btn shadow btn-dark rounded-circle scroll-btn scroll-next d-none d-md-flex"
+      aria-label="Scroll right"
+      (click)="scrollGames(1)"
+    >
+      <i class="bi bi-chevron-right"></i>
+    </button>
+  </div>
+</section>

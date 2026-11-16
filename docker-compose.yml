@@ -1,0 +1,61 @@
+services:
+  db:
+    image: postgres:16
+    container_name: gaming-explorer-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend_django/Dockerfile
+    container_name: gaming-explorer-backend
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+    env_file: .env
+    environment:
+      # Queste sovrascrivono i valori del .env (pensati per Django in locale).
+      POSTGRES_HOST: db
+      POSTGRES_PORT: "5432"
+      # "backend" serve perché il proxy di Angular chiama http://backend:8000
+      BACKEND_PORT: ${BACKEND_PORT}
+      DJANGO_ALLOWED_HOSTS: localhost,127.0.0.1,backend
+    volumes:
+      - ./backend_django:/app/backend_django
+    ports:
+      - "127.0.0.1:${BACKEND_PORT:-8000}:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    image: node:24-slim
+    container_name: gaming-explorer-frontend
+    working_dir: /app
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+    environment:
+      HOME: /tmp
+      NG_CLI_ANALYTICS: "false"
+      FRONTEND_PORT: ${FRONTEND_PORT}
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "127.0.0.1:${FRONTEND_PORT:-4200}:4200"
+    depends_on:
+      - backend
+    command: sh -c "npm install && npx ng serve --host 0.0.0.0 --proxy-config proxy.conf.json"
+
+volumes:
+  pgdata:

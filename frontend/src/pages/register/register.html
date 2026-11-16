@@ -1,0 +1,167 @@
+<div class="d-flex flex-column vh-100 justify-content-center align-items-center position-relative">
+  <div class="container text-body-secondary">
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
+        <div class="auth-back-btn mt-lg-4 ml-lg-6 ml-4 px-lg-4">
+          <a
+            routerLink="/"
+            class="btn btn-outline-secondary d-inline-flex align-items-center gap-2"
+          >
+            <i class="bi bi-arrow-left" aria-hidden="true"></i>
+            Back to home
+          </a>
+        </div>
+        <section class="card gi-card">
+          <div class="card-body p-4 p-sm-5">
+            <h1 class="gi-brand h2 mb-1">
+              @if (activeTheme() === 'dark') {
+                <img class="gi-brand-logo" src="/brand/logo-dark.svg" alt="Game Inn" />
+              } @else {
+                <img class="gi-brand-logo" src="/brand/logo-light.svg" alt="Game Inn" />
+              }
+            </h1>
+            <p class="gi-subtitle mb-4 fw-light">Create your account</p>
+
+            @if (successMessage) {
+              <div class="alert alert-success" role="status">{{ successMessage }}</div>
+            }
+
+            @if (generalError) {
+              <div class="alert alert-danger" role="alert">{{ generalError }}</div>
+            }
+
+            <form [formGroup]="registerForm" (ngSubmit)="submit()" novalidate>
+              <div class="gi-field">
+                <label for="username" class="gi-label">Username</label>
+                <input
+                  id="username"
+                  type="text"
+                  class="form-control form-control-lg gi-input border"
+                  [class.is-invalid]="username.touched && username.errors"
+                  formControlName="username"
+                  maxlength="20"
+                  autocomplete="username"
+                />
+                @if (username.touched && username.errors) {
+                  <div class="invalid-feedback d-block" role="alert">
+                    @if (username.errors['required']) {
+                      Username is required.
+                    }
+                    @if (username.errors['maxlength']) {
+                      Username cannot exceed 20 characters.
+                    }
+                    @if (username.errors['pattern']) {
+                      Username can contain only letters and numbers.
+                    }
+                    @if (username.errors['api']) {
+                      {{ username.errors['api'] }}
+                    }
+                  </div>
+                }
+              </div>
+
+              <div class="gi-field">
+                <label for="email" class="gi-label">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  class="form-control form-control-lg gi-input border"
+                  [class.is-invalid]="email.touched && email.errors"
+                  formControlName="email"
+                  autocomplete="email"
+                  inputmode="email"
+                />
+                @if (email.touched && email.errors) {
+                  <div class="invalid-feedback d-block" role="alert">
+                    @if (email.errors['required']) {
+                      Email is required.
+                    }
+                    @if (email.errors['email']) {
+                      Enter a valid email address.
+                    }
+                    @if (email.errors['api']) {
+                      {{ email.errors['api'] }}
+                    }
+                  </div>
+                }
+              </div>
+
+              <div class="gi-field">
+                <label for="password" class="gi-label">Password</label>
+                <input
+                  id="password"
+                  type="password"
+                  class="form-control form-control-lg gi-input border"
+                  [class.is-invalid]="password.touched && password.errors"
+                  formControlName="password"
+                  autocomplete="new-password"
+                />
+                @if (password.touched && password.errors) {
+                  <div class="invalid-feedback d-block" role="alert">
+                    @if (password.errors['required']) {
+                      Password is required.
+                    }
+                    @if (password.errors['minlength']) {
+                      Password must be at least 10 characters long.
+                    }
+                    @if (password.errors['api']) {
+                      {{ password.errors['api'] }}
+                    }
+                  </div>
+                }
+              </div>
+
+              <div class="gi-field">
+                <label for="confirmPassword" class="gi-label">Confirm password</label>
+                <input
+                  id="confirmPassword"
+                  type="password"
+                  class="form-control form-control-lg gi-input border"
+                  [class.is-invalid]="
+                    confirmPassword.touched &&
+                    (confirmPassword.errors || registerForm.errors?.['passwordsMismatch'])
+                  "
+                  formControlName="confirmPassword"
+                  autocomplete="new-password"
+                />
+                @if (
+                  confirmPassword.touched &&
+                  (confirmPassword.errors || registerForm.errors?.['passwordsMismatch'])
+                ) {
+                  <div class="invalid-feedback d-block" role="alert">
+                    @if (confirmPassword.errors?.['required']) {
+                      Confirm your password.
+                    }
+                    @if (registerForm.errors?.['passwordsMismatch']) {
+                      Passwords do not match.
+                    }
+                    @if (confirmPassword.errors?.['api']) {
+                      {{ confirmPassword.errors['api'] }}
+                    }
+                  </div>
+                }
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-primary mb-3 btn-lg w-100"
+                [disabled]="isSubmitting"
+              >
+                @if (isSubmitting) {
+                  <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                  Registering…
+                } @else {
+                  Register
+                }
+              </button>
+            </form>
+
+            <p class="gi-footer mb-0 fw-light">
+              Already have an account? <a routerLink="/login">Log in</a>
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
